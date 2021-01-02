@@ -216,6 +216,7 @@ class CarouselSliderState extends State<CarouselSlider>
   Widget getCenterWrapper(Widget child) {
     if (widget.options.disableCenter) {
       return Container(
+        alignment: Alignment.bottomCenter,
         child: child,
       );
     }
@@ -316,8 +317,7 @@ class CarouselSliderState extends State<CarouselSlider>
                     (1 / widget.options.aspectRatio);
 
             if (widget.options.scrollDirection == Axis.horizontal) {
-              return getCenterWrapper(getEnlargeWrapper(child,
-                  height: distortionValue * height, scale: distortionValue));
+              return getCenterWrapper(child);
             } else {
               return getCenterWrapper(getEnlargeWrapper(child,
                   width: distortionValue * MediaQuery.of(context).size.width,
